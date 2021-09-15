@@ -51,8 +51,6 @@ func entriesHandlerGet(w http.ResponseWriter, req *http.Request) {
 		scanner := bufio.NewScanner(file)
 		for scanner.Scan() {
 			a := strings.FieldsFunc(scanner.Text(), Split)
-			fmt.Println(a[1])
-			//fmt.Println(scanner.Text())
 			fmt.Fprintf(w, "%s\n", a[1])
 		}
 
@@ -67,5 +65,5 @@ func main() {
 	http.HandleFunc("/", TimeHandler)
 	http.HandleFunc("/add", entriesHandlerPost)
 	http.HandleFunc("/entries", entriesHandlerGet)
-	http.ListenAndServe(":3400", nil)
+	http.ListenAndServe(":4567", nil)
 }
